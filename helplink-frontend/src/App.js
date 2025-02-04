@@ -1,22 +1,19 @@
 import React from 'react';
-import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
+import { Route, BrowserRouter as Router, Routes } from 'react-router-dom';
 import LoginPage from './components/LoginPage';
 import RegisterPage from './components/RegisterPage';
-import EmergencyRequestForm from './components/EmergencyRequestForm';
-import ResponderDashboard from './components/ResponderDashboard';
 
 const App = () => {
   return (
     <Router>
-      <div>
-        <Switch>
-          <Route path="/login" component={LoginPage} />
-          <Route path="/register" component={RegisterPage} />
-          <Route path="/emergency" component={EmergencyRequestForm} />
-          <Route path="/dashboard" component={ResponderDashboard} />
-          <Route path="/" exact component={LoginPage} />
-        </Switch>
-      </div>
+      <Routes>
+        <Route path="/" element={<LoginPage />} />
+        <Route path="/register" element={<RegisterPage />} />
+        {/* Uncomment and add necessary components */}
+        {/* <Route path="/emergency" element={<EmergencyRequestForm />} />
+        <Route path="/dashboard" element={<ResponderDashboard />} />
+        <Route path="/" element={<LoginPage />} /> */}
+      </Routes>
     </Router>
   );
 };
