@@ -1,4 +1,4 @@
-// import axios from 'axios';
+import axios from 'axios';
 import React, { useState } from 'react';
 import { Alert, Button, Col, Container, Form, Row } from "react-bootstrap";
 
@@ -9,12 +9,12 @@ const RegisterPage = () => {
   const [role, setRole] = useState('patient');
   const [status, setStatus] = useState('');
 
-  // const handleSubmit = async (e) => {
-  //   e.preventDefault();
-  //     await axios.post('http://localhost:5000/users', { name, email, password, role })
-  //     .then(result => console.log(result))
-  //     .catch(err => console.log(err))
-  // }
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+      await axios.post('http://localhost:5000/users', { name, email, password, role })
+      .then(result => console.log(result))
+      .catch(err => console.log(err))
+  };
 
   return (
     <Container className="mt-4">
@@ -22,7 +22,7 @@ const RegisterPage = () => {
         <Col md={6}>
           <h2 className="text-center">Register</h2>
           {status && <Alert variant={status.includes('successful') ? 'success' : 'danger'}>{status}</Alert>}
-          <Form className="register-form">
+          <Form className="register-form" onSubmit={handleSubmit}>
             <Form.Group className="mb-3" controlId="name">
               <Form.Label>Full Name</Form.Label>
               <Form.Control type="text" value={name} onChange={(e) => setName(e.target.value)} required />
@@ -42,7 +42,7 @@ const RegisterPage = () => {
               <Form.Label>Role</Form.Label>
               <Form.Control as="select" value={role} onChange={(e) => setRole(e.target.value)}>
                 <option value="patient">Patient</option>
-                <option value="volunteer">Volunteer</option>
+                <option value="doctor">Doctor</option>
               </Form.Control>
             </Form.Group>
 
@@ -50,7 +50,6 @@ const RegisterPage = () => {
 
             <Button variant="primary" type="submit" className="w-100">Submit</Button>
           </Form>
-          {/* <Link to="/login">Login to Continue</Link> */}
         </Col>
       </Row>
     </Container>

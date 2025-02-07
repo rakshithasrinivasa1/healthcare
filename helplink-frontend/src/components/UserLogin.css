@@ -1,0 +1,98 @@
+/* Full Page Background */
+.login-page {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  width: 100vw;
+  background-color: #007bff;
+  /* Blue Background */
+}
+
+/* Centered Login Box */
+.login-container {
+  width: 100%;
+  max-width: 400px;
+  padding: 30px;
+  background: #fff;
+  box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+  border-radius: 10px;
+  text-align: center;
+}
+
+/* Toggle Buttons */
+.toggle-container {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 20px;
+}
+
+.toggle-btn {
+  flex: 1;
+  padding: 10px;
+  border: 1px solid #007bff;
+  background: white;
+  color: black;
+  cursor: pointer;
+  font-weight: bold;
+  transition: 0.3s;
+}
+
+.toggle-btn.active {
+  background: #007bff;
+  color: white;
+}
+
+/* Image Styling */
+.image-container {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 20px;
+}
+
+.login-image {
+  width: 150px;
+  height: auto;
+}
+
+/* Form Styles */
+h2 {
+  font-size: 1.5rem;
+  margin-bottom: 20px;
+}
+
+.form-container {
+  text-align: left;
+}
+
+/* Remember Me & Forgot Password */
+.options-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 15px;
+}
+
+.forgot-password {
+  color: #007bff;
+  text-decoration: none;
+}
+
+.forgot-password:hover {
+  text-decoration: underline;
+}
+
+/* Login Button */
+.btn-primary {
+  background: #007bff;
+  border: none;
+  padding: 10px;
+  font-size: 1rem;
+  font-weight: bold;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.btn-primary:hover {
+  background: #0056b3;
+}

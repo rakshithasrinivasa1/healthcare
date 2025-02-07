@@ -1,0 +1,22 @@
+.bg-blue {
+  background-color: #007bff;
+  /* Bootstrap primary blue */
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.center-image {
+  max-width: 480px;
+  margin-left: 35px;
+  /* Adjust size as needed */
+  display: flex;
+  justify-content: center;
+  /* Center horizontally */
+  align-items: center;
+  /* Center vertically */
+  height: 50vh;
+  /* Full viewport height for vertical centering */
+}
