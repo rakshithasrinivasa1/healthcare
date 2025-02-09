@@ -1,41 +1,26 @@
-// const express = require('express');
-// const { registerUser, loginUser } = require('../controllers/authController');
-// const router = express.Router();
-
-// router.post('/register', registerUser);
-// router.post('/login', loginUser);
-
-// module.exports = router;
-
-
 const express = require('express');
-const mongoose = require('mongoose');
-const User = require('../models/User');
+const User = require('../models/User'); // Correct import
+
 const router = express.Router();
 
-//create operation
-router.post("/register", async (req,res) => {
-    const{ name, email, password, role} = req.body;
-
-    const User = require("../models/User");
-
-    try{
-        const userAdded = await User.create({
-            name:name,
-            email:email,
-            password:password,
-            role:role
-        });
+// Create operation
+router.post("/signin", async (req, res) => {
+    try {
+        const userAdded = await User.create(req.body);
         res.status(201).json(userAdded);
-    }catch(error){
-        console.log(error);
-        res.status(400).json({message: "User already exists"});
+    } catch (error) {
+        console.error("Error:", error);
+        res.status(400).json({ message: "User already exists or invalid data" });
+
     }
-   
-} )
+    res.send("Api running");
+});
+
+
+
 
 //get all users
-router.get("/", async(req,res) => {
+router.get("/users", async(req,res) => {
 
     try{
         const showAll = await User.find();
@@ -48,7 +33,7 @@ router.get("/", async(req,res) => {
 })
 
 //get single user
-router.get("/:id", async(req,res) => {
+router.get("/users/:id", async(req,res) => {
 
     const {id} = req.params;
     try{
@@ -62,7 +47,7 @@ router.get("/:id", async(req,res) => {
 })
 
 //delete operation
-router.delete("/:id", async(req,res) => {
+router.delete("/users/:id", async(req,res) => {
 
     const {id} = req.params;
     try{
@@ -76,7 +61,7 @@ router.delete("/:id", async(req,res) => {
 })
 
 //put/patch..
-router.patch("/:id", async(req,res) => {
+router.patch("/users/:id", async(req,res) => {
 
     const {id} = req.params;
     const {name, email, password, role} = req.body;
@@ -91,5 +76,6 @@ router.patch("/:id", async(req,res) => {
     }
     res.send("Api running");
 })
+
 
 module.exports = router;
